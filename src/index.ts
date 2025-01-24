@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // global middlewares
 
 // routes
-app.use("/todos", todoRoutes);
+app.use("/tasks", todoRoutes);
 
 // error handlers
 app.use(ErrorHandler);
