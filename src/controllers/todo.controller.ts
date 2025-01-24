@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../database";
-import { Todo } from "@prisma/client";
+import { NotFoundError } from "../common/middlewares";
 
 export const TodoController = {
     findAll: async (req: Request, res: Response) => {
@@ -14,11 +14,15 @@ export const TodoController = {
 
         const todoId = parseInt(id);
 
-        const todos = await prisma.todo.findUnique({
+        const todo = await prisma.todo.findUnique({
             where: { id: todoId },
         });
 
-        res.json(todos);
+        if (!todo) {
+            throw new NotFoundError("Record Not Found");
+        }
+
+        res.json(todo);
     },
 
     create: async (req: Request, res: Response) => {
@@ -34,9 +38,17 @@ export const TodoController = {
 
         const todoId = parseInt(id);
 
-        const { data } = req.body;
+        const data = req.body;
 
-        const todo = prisma.todo.update({
+        const oldTodo = await prisma.todo.findFirstOrThrow({
+            where: { id: todoId },
+        });
+
+        if (!oldTodo) {
+            throw new NotFoundError("Record Not Found");
+        }
+
+        const todo = await prisma.todo.update({
             where: { id: todoId },
             data,
         });
@@ -51,6 +63,10 @@ export const TodoController = {
         const oldTodo = await prisma.todo.findFirstOrThrow({
             where: { id: todoId },
         });
+
+        if (!oldTodo) {
+            throw new NotFoundError("Record Not Found");
+        }
 
         const todo = await prisma.todo.update({
             where: { id: todoId },

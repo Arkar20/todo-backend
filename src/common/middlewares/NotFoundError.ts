@@ -1,0 +1,17 @@
+import ErrorHandler from "./AbstractErrorHandler";
+
+class NotFoundError extends ErrorHandler {
+    type = "404 Not Found";
+    statusCode = 404;
+
+    constructor(public message: string) {
+        super();
+        Object.setPrototypeOf(this, NotFoundError.prototype);
+    }
+
+    serialize() {
+        return { message: this.message };
+    }
+}
+
+export { NotFoundError };
