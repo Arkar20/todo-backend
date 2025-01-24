@@ -24,7 +24,7 @@ export const TodoController = {
     create: async (req: Request, res: Response) => {
         const data = req.body;
 
-        const todo = await prisma.todo.create(data);
+        const todo = await prisma.todo.create({ data });
 
         res.json(todo);
     },
@@ -39,6 +39,24 @@ export const TodoController = {
         const todo = prisma.todo.update({
             where: { id: todoId },
             data,
+        });
+
+        res.json(todo);
+    },
+    updateStatus: async (req: Request, res: Response) => {
+        const { id } = req.params;
+
+        const todoId = parseInt(id);
+
+        const oldTodo = await prisma.todo.findFirstOrThrow({
+            where: { id: todoId },
+        });
+
+        const todo = await prisma.todo.update({
+            where: { id: todoId },
+            data: {
+                completed: !oldTodo.completed,
+            },
         });
 
         res.json(todo);
