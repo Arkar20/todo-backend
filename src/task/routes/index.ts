@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { TaskController } from "../controllers";
 import { param } from "express-validator";
-import { checkParams } from "../common/middlewares";
+import { checkParams } from "../../common/middlewares";
 const router = Router();
 
 const paramMiddleware = checkParams([

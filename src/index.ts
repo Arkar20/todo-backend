@@ -3,7 +3,7 @@ import "express-async-errors";
 import express, { Express } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import todoRoutes from "./routes";
+import todoRoutes from "./task/routes";
 import { ErrorHandler } from "./common/middlewares";
 dotenv.config();
 

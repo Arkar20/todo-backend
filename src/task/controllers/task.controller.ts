@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import prisma from "../database";
-import { NotFoundError } from "../common/middlewares";
+import prisma from "../../database";
+import { NotFoundError } from "../../common/middlewares";
 
 export const TaskController = {
     findAll: async (req: Request, res: Response) => {
