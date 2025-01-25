@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import todoRoutes from "./task/routes";
 import { ErrorHandler } from "./common/middlewares";
+import "reflect-metadata";
+
 dotenv.config();
 
 const app: Express = express();

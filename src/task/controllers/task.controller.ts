@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import prisma from "../../database";
 import { NotFoundError } from "../../common/middlewares";
+import { CreateTaskDto } from "../dtos/createTaskDto";
+import { UpdateTaskDto } from "../dtos";
 
 export const TaskController = {
     findAll: async (req: Request, res: Response) => {
@@ -26,9 +28,15 @@ export const TaskController = {
     },
 
     create: async (req: Request, res: Response) => {
-        const data = req.body;
+        const dto: CreateTaskDto = req.body;
 
-        const task = await prisma.task.create({ data });
+        const task = await prisma.task.create({
+            data: {
+                title: dto.title,
+                completed: dto.completed,
+                color: dto.color,
+            },
+        });
 
         res.json(task);
     },
@@ -38,7 +46,7 @@ export const TaskController = {
 
         const taskId = parseInt(id);
 
-        const data = req.body;
+        const dto: UpdateTaskDto = req.body;
 
         const oldTask = await prisma.task.findFirst({
             where: { id: taskId },
@@ -50,7 +58,11 @@ export const TaskController = {
 
         const task = await prisma.task.update({
             where: { id: taskId },
-            data,
+            data: {
+                title: dto.title,
+                completed: dto.completed,
+                color: dto.color,
+            },
         });
 
         res.json(task);

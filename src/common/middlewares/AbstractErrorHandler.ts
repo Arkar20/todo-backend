@@ -8,7 +8,7 @@ abstract class ErrorHandler extends Error {
         Object.setPrototypeOf(this, ErrorHandler.prototype);
     }
 
-    abstract serialize(): { message: string }[] | { message: string };
+    abstract serialize(): { messages: string[] };
 }
 
 export default ErrorHandler;

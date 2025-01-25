@@ -10,7 +10,7 @@ class NotFoundError extends ErrorHandler {
     }
 
     serialize() {
-        return { message: this.message };
+        return { messages: [this.message] };
     }
 }
 
