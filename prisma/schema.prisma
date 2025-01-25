@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Todo {
+model Task {
   id          Int      @id @default(autoincrement())
   title       String
   color       String

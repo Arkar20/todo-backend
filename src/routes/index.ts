@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { TodoController } from "../controllers";
+import { TaskController } from "../controllers";
 import { param } from "express-validator";
 import { checkParams } from "../common/middlewares";
 const router = Router();
@@ -10,12 +10,12 @@ const paramMiddleware = checkParams([
         .withMessage("Parameter must be a positive number."),
 ]);
 
-router.get("/", TodoController.findAll);
-router.post("/", TodoController.create);
+router.get("/", TaskController.findAll);
+router.post("/", TaskController.create);
 
-router.get("/:id", paramMiddleware, TodoController.findById);
-router.put("/:id", paramMiddleware, TodoController.update);
-router.delete("/:id", paramMiddleware, TodoController.delete);
-router.patch("/:id/status", paramMiddleware, TodoController.updateStatus);
+router.get("/:id", paramMiddleware, TaskController.findById);
+router.put("/:id", paramMiddleware, TaskController.update);
+router.delete("/:id", paramMiddleware, TaskController.delete);
+router.patch("/:id/status", paramMiddleware, TaskController.updateStatus);
 
 export default router;
