@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import AbstractErrorHandler from "./AbstractErrorHandler";
+import AbstractErrorHandler from "../../core/errors/AbstractErrorHandler";
 
 export const ErrorHandler = (
     err: Error,

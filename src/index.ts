@@ -3,9 +3,8 @@ import "express-async-errors";
 import express, { Express } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import todoRoutes from "./task/routes";
-import { ErrorHandler } from "./common/middlewares";
-import "reflect-metadata";
+import { router as taskRoutes } from "./task/";
+import { ErrorHandler } from "./task/presentation/middlewares";
 
 dotenv.config();
 
@@ -15,10 +14,8 @@ const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// global middlewares
-
 // routes
-app.use("/tasks", todoRoutes);
+app.use("/tasks", taskRoutes);
 
 // error handlers
 app.use(ErrorHandler);

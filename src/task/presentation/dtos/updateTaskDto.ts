@@ -1,4 +1,4 @@
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsOptional, IsString } from "class-validator";
 import { Transform } from "class-transformer";
 
 export class UpdateTaskDto {
@@ -8,7 +8,7 @@ export class UpdateTaskDto {
 
     @IsString()
     @IsOptional()
-    color: string;
+    color?: string;
 
     @IsBoolean()
     @IsOptional()

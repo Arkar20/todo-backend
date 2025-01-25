@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { plainToInstance } from "class-transformer";
 import { validate } from "class-validator";
-import { ClassValidatorHandler } from "./ClassValidatorHandler";
+import { ClassValidatorHandler } from "../../core/errors/ClassValidatorHandler";
 
 export const validateRequest = <T>(type: new () => T) => {
     return async (req: Request, res: Response, next: NextFunction) => {
