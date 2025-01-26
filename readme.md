@@ -44,7 +44,7 @@ Run Migration
 Start the server
 
 ```bash
-  pnpm start:dev
+  pnpm dev
 ```
 
 
