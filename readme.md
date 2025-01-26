@@ -40,3 +40,9 @@ Create Database
 ## Tech Stack
 
 Express, Prisma ORM, Mysql
+
+## Roadmap
+
+- Adding Unit Testing and E2E testing for long run
+
+- Setup Microservice for scalability
