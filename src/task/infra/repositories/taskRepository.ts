@@ -76,7 +76,11 @@ export class TaskRepository implements AbstractTaskRepository {
     }
 
     async findAll(): Promise<Task[]> {
-        const tasks = await prisma.task.findMany();
+        const tasks = await prisma.task.findMany({
+            orderBy: {
+                completed: "asc",
+            },
+        });
 
         return tasks.map(
             (task) =>
