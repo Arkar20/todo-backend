@@ -5,6 +5,6 @@ export class Task {
         public color?: string,
         public completed?: boolean,
         public createdAt?: Date,
-        public deletedAt?: Date
+        public updatedAt?: Date
     ) {}
 }

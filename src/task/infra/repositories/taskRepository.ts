@@ -83,7 +83,7 @@ export class TaskRepository implements AbstractTaskRepository {
         });
 
         return tasks.map(
-            (task) =>
+            (task: Task) =>
                 new Task(
                     task.id,
                     task.title,
