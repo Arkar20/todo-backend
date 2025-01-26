@@ -27,14 +27,26 @@ Install dependencies
   pnpm install
 ```
 
+Create Database
+ - create mysql database and configure in .env  ```DATABASE_URL```
+
+
+Run Migration
+
+```bash
+  pnpm prisma migrate dev
+```
+
+```bash
+  pnpm prisma generate
+```
+
 Start the server
 
 ```bash
   pnpm start:dev
 ```
 
-Create Database
- - create mysql database and configure in .env  ```DATABASE_URL```
 
 
 ## Tech Stack
