@@ -1,60 +1,52 @@
+# Express with Clean Architecture
 
-# Introduction
+## Overview
+A scalable and maintainable Express.js backend project structured using the principles of Clean Architecture.
 
-This is the Backend of a Todo List App built with Express.js, Prisma, and a MySQL database. It provides RESTful APIs for task management, including create, retrieve, update and delete functionality.
+## ✅ Features
 
-The backend is structured using Clean Architecture to ensure separation of concerns, maintainability, and scalability.
+- Clean architecture: separation of concerns between domain, infrastructure, and delivery
+- Scalable folder structure
+- Centralized error handling
+- Environment-based configuration
+- Easy to test and extend
+With these goals in mind, the app needed a clear and intuitive interface where users can easily add, view, and analyze their expenses.
 
+## 🚀 Getting Started
 
+### Prerequisites
 
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/Arkar20/todo-backend
-```
-
-Go to the project directory
-
-```bash
-  cd todo-backend
-```
-
-Install dependencies
-
-```bash
-  pnpm install
-```
-
-Create Database
- - create mysql database and configure in .env  ```DATABASE_URL```
+- Node.js >= 18
+- npm or yarn or pnpm
+- MongoDB / PostgreSQL / any service you're using
 
 
-Run Migration
+### TechStack
 
-```bash
-  pnpm prisma migrate dev
-```
+- Express.js (web framework)
+
+- Prisma ORM (DB layer)
+
+- MySQL (relational DB)
+
+- TypeScript (type safety)
+
+- pnpm (package manager)
+
+### Installation
 
 ```bash
-  pnpm prisma generate
+git clone git@github.com:Arkar20/todo-backend.git
+
+cd todo-backend
+
+pnpm install
+
 ```
 
-Start the server
+### Run Locally
 
 ```bash
-  pnpm dev
+pnpm run dev
 ```
 
-
-
-## Tech Stack
-
-Express, Prisma ORM, Mysql
-
-## Roadmap
-
-- Adding Unit Testing and E2E testing for long run
-
-- Setup Microservice for scalability
